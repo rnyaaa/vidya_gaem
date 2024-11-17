@@ -11,10 +11,12 @@ TODO:
       - Grappling hook
       - Power fists that release a shockwave
       - Double/Triple jumps
-      - Climbing-claws that let you grab onto walls and jump off of them 
+      - Climbing-claws that let you grab onto walls and jump off of them
+      - Punch-drunk node that makes you very powerful but too dumb to talk to NPCs
   - Levels (starting with a single test-room)
   - Some kind of mini-game you need the nodes to finish (like lemmings)
-  - Stink-system, where if you walk too long without a wash NPCs will think you're stinky and won't talk to you :(
+  - Stink-system, where if you walk too long you get smelly feet and the NPCs won't talk to you :(
+      - Except for one guy who will really like it.
 
 
 Assets so far:
