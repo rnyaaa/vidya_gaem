@@ -1,0 +1,9 @@
+[gd_resource type="FogMaterial" load_steps=3 format=3 uid="uid://c5gjlqou6pdfs"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_21ivu"]
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_76ah5"]
+noise = SubResource("FastNoiseLite_21ivu")
+
+[resource]
+density_texture = SubResource("NoiseTexture3D_76ah5")
