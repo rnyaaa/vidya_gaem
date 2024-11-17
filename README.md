@@ -14,6 +14,7 @@ TODO:
       - Climbing-claws that let you grab onto walls and jump off of them 
   - Levels (starting with a single test-room)
   - Some kind of mini-game you need the nodes to finish (like lemmings)
+  - Stink-system, where if you walk too long without a wash NPCs will think you're stinky and won't talk to you :(
 
 
 Assets so far:
