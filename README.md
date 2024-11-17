@@ -4,11 +4,15 @@ Rougelike third-person melee
 
 TODO:
   - PS1 graphics (except for a few elements) (almost done!)
-  - Grappling hook
-  - Node-based upgrade engine
-  - Levels (starting with a single test-room)
+  - A working and flexible camera controller, fit for detailed platforming and combat
   - Melee combat (figure out how to vary this)
       - Exception: AR1
+  - Node-based upgrade engine that upgrades your combat and movement
+      - Grappling hook
+      - Power fists that release a shockwave
+      - Double/Triple jumps
+      - Climbing-claws that let you grab onto walls and jump off of them 
+  - Levels (starting with a single test-room)
   - Some kind of mini-game you need the nodes to finish (like lemmings)
 
 
