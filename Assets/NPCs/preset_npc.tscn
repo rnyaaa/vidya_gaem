@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://bv50ux6c3nud8"]
+
+[ext_resource type="Script" path="res://Assets/NPCs/NPC.gd" id="1_lkjg2"]
+[ext_resource type="Texture2D" uid="uid://dbfmr8p0chis1" path="res://Assets/NPCs/portraits/474976167_1702078957182790_9136187870048390063_n.jpg" id="2_maja7"]
+[ext_resource type="Texture2D" uid="uid://ds0xon1rp3rcj" path="res://Assets/NPCs/dialog.png" id="3_p11ke"]
+[ext_resource type="Script" path="res://Assets/Dialog/InteractionPrompt.gd" id="4_rvtjh"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e7ghj"]
+
+[node name="NPC" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18)
+script = ExtResource("1_lkjg2")
+npc_name = "Slinger"
+portrait_texture = ExtResource("2_maja7")
+dialog_lines = Array[String](["I am the hash slashing slinger. ", "I slash hash and sling it.", "I can slash many things...", "Check out my blade bro", "If at any time you are in danger, call my name and I will come to your aid <3 ", "I love you so very much. I love you I love you I love you I love you I love you I love you. Please Please Please Please Please Please Please Please Please Please Please Please Please Please Please Please Please.
+"])
+
+[node name="InteractionPrompt" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.133764, 2, 0)
+pixel_size = 0.0025
+billboard = 1
+shaded = true
+texture = ExtResource("3_p11ke")
+script = ExtResource("4_rvtjh")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+pixel_size = 0.0021
+billboard = 1
+texture = ExtResource("2_maja7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_e7ghj")

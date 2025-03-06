@@ -1,0 +1,72 @@
+[gd_scene load_steps=18 format=3 uid="uid://b3kkdjov6py8t"]
+
+[ext_resource type="Texture2D" uid="uid://px8sahenq6yq" path="res://Assets/World/groundtiles1/concrete.png" id="1_f8nqt"]
+[ext_resource type="Texture2D" uid="uid://dlaumn48f6o5a" path="res://Assets/World/groundtiles1/ground.png" id="2_hknnw"]
+[ext_resource type="Texture2D" uid="uid://de1ts78c7ctme" path="res://Assets/World/groundtiles1/rock.png" id="3_7wbbq"]
+[ext_resource type="Texture2D" uid="uid://duykm3i3h8sqm" path="res://Assets/World/groundtiles1/sand2.png" id="4_laiyo"]
+[ext_resource type="Texture2D" uid="uid://cnm3k3ssitut6" path="res://Assets/World/groundtiles1/sand.png" id="5_kv2ue"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_36rmb"]
+albedo_texture = ExtResource("1_f8nqt")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_atgww"]
+lightmap_size_hint = Vector2i(8, 5)
+material = SubResource("StandardMaterial3D_36rmb")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wgp67"]
+albedo_texture = ExtResource("2_hknnw")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_u6bcl"]
+material = SubResource("StandardMaterial3D_wgp67")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f3yq0"]
+albedo_texture = ExtResource("3_7wbbq")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wts0n"]
+material = SubResource("StandardMaterial3D_f3yq0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f5ukm"]
+albedo_texture = ExtResource("4_laiyo")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_up2et"]
+material = SubResource("StandardMaterial3D_f5ukm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1wora"]
+albedo_texture = ExtResource("5_kv2ue")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_r657g"]
+material = SubResource("StandardMaterial3D_1wora")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_624ab"]
+albedo_texture = ExtResource("3_7wbbq")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_5slal"]
+material = SubResource("StandardMaterial3D_624ab")
+size = Vector3(2, 2, 2)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="concrete" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+mesh = SubResource("PlaneMesh_atgww")
+
+[node name="ground" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_u6bcl")
+
+[node name="rock" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+mesh = SubResource("PlaneMesh_wts0n")
+
+[node name="sand2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+mesh = SubResource("PlaneMesh_up2et")
+
+[node name="sand" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+mesh = SubResource("PlaneMesh_r657g")
+
+[node name="horizontal" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -1, 2)
+mesh = SubResource("BoxMesh_5slal")

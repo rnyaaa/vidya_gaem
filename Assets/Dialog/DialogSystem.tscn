@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1pfu2uh6o7u8"]
+
+[ext_resource type="Script" path="res://Assets/Dialog/DialogUI.gd" id="1_fdpji"]
+[ext_resource type="Texture2D" uid="uid://dbfmr8p0chis1" path="res://Assets/NPCs/portraits/474976167_1702078957182790_9136187870048390063_n.jpg" id="2_o4oon"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_fdpji")
+
+[node name="Container" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Portrait" type="TextureRect" parent="Container"]
+show_behind_parent = true
+offset_left = 751.0
+offset_top = 208.0
+offset_right = 1070.0
+offset_bottom = 618.0
+texture = ExtResource("2_o4oon")
+expand_mode = 1
+
+[node name="DialogBox" type="Panel" parent="Container"]
+offset_left = 213.0
+offset_top = 418.0
+offset_right = 943.0
+offset_bottom = 593.0
+
+[node name="NPCName" type="Label" parent="Container"]
+offset_left = 515.0
+offset_top = 423.0
+offset_right = 642.0
+offset_bottom = 446.0
+text = "Slinger"
+horizontal_alignment = 1
+
+[node name="DialogText" type="RichTextLabel" parent="Container"]
+offset_left = 263.0
+offset_top = 455.0
+offset_right = 900.0
+offset_bottom = 565.0
+
+[node name="PromptIndicator" type="TextureRect" parent="Container"]
+offset_left = 929.0
+offset_top = 580.0
+offset_right = 938.0
+offset_bottom = 589.0
