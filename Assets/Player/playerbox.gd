@@ -1,4 +1,4 @@
-extends GeometryInstance3D
+extends Node3D
 
 # Movement speed
 @export var speed: float = 5.0
@@ -46,6 +46,7 @@ func _process(delta: float) -> void:
 		rotate_y(deg_to_rad(15))
 	if Input.is_action_just_pressed("rotate_right"):
 		rotate_y(deg_to_rad(-15))
+		
 		
 	var npcs = get_tree().get_nodes_in_group("npcs")
 	dialog_system.check_npc_proximity(global_position, npcs)

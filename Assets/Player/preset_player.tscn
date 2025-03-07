@@ -1,6 +1,7 @@
-[gd_scene load_steps=323 format=3 uid="uid://ci20hyjn4qcdt"]
+[gd_scene load_steps=327 format=3 uid="uid://ci20hyjn4qcdt"]
 
 [ext_resource type="Script" path="res://Assets/Player/playerbox.gd" id="1_3yovi"]
+[ext_resource type="Script" path="res://Assets/Player/PlayerScripts/camera_rig_movement.gd" id="2_epmug"]
 [ext_resource type="Texture2D" uid="uid://uupkw0k06vny" path="res://Assets/Animations/player/north/Image0001.png" id="2_ms07s"]
 [ext_resource type="Texture2D" uid="uid://br0wlh1yuejvu" path="res://Assets/Animations/player/north/Image0002.png" id="3_yj14s"]
 [ext_resource type="Texture2D" uid="uid://b851x6145b641" path="res://Assets/Animations/player/north/Image0003.png" id="4_t0bpa"]
@@ -321,6 +322,10 @@
 [ext_resource type="Texture2D" uid="uid://c28d14tm01eox" path="res://Assets/Animations/player/0078.png" id="319_o1mmv"]
 [ext_resource type="Texture2D" uid="uid://3f3k3cy1c5l8" path="res://Assets/Animations/player/0079.png" id="320_d1eeg"]
 [ext_resource type="Texture2D" uid="uid://dhuoass8raw1a" path="res://Assets/Animations/player/0080.png" id="321_rimhn"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_gus5q"]
+radius = 0.25
+height = 1.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e6q7m"]
 animations = [{
@@ -1305,20 +1310,51 @@ animations = [{
 "speed": 24.0
 }]
 
-[node name="playerbox" type="MeshInstance3D" node_paths=PackedStringArray("animated_sprite")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0.5, 0)
-skeleton = NodePath("")
+[sub_resource type="BoxMesh" id="BoxMesh_7f8dm"]
+size = Vector3(10, 1, 5)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rmufr"]
+radius = 0.25
+height = 1.0
+
+[node name="PlayerCharacter" type="Node3D" node_paths=PackedStringArray("animated_sprite")]
 script = ExtResource("1_3yovi")
 animated_sprite = NodePath("PlayerSprite")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0, 16, 15)
+[node name="playerbox" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0.5, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_gus5q")
+skeleton = NodePath("")
+
+[node name="CameraRig" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0.5, 0)
+script = ExtResource("2_epmug")
+shakeMultiplier = 1.5
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig"]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573577, 0.819153, 0, 16, 15)
 projection = 1
 size = 15.0
 
 [node name="PlayerSprite" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(1, 5.96046e-08, 2.98023e-07, -1.19209e-07, 1, 0, -7.4506e-07, 0, 1, 0.0259411, -0.239101, 0.0111043)
+transform = Transform3D(1, 5.96046e-08, 2.98023e-07, -1.19209e-07, 1, 0, -7.45059e-07, 0, 0.999999, 0, 0.261, 0)
 billboard = 1
+alpha_cut = 3
+alpha_hash_scale = 0.0
 render_priority = 1
 sprite_frames = SubResource("SpriteFrames_e6q7m")
 animation = &"walk_north"
+speed_scale = 6.0
+
+[node name="envRefrence" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, -0.5, 0)
+visible = false
+mesh = SubResource("BoxMesh_7f8dm")
+skeleton = NodePath("../playerbox")
+
+[node name="Collision" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_rmufr")

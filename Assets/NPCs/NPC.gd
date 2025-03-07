@@ -23,7 +23,7 @@ var dialog_data: DialogData
 
 func _ready():
 	dialog_data = DialogData.new(npc_name, portrait_texture, dialog_lines)
-	print(dialog_data.dialog_lines)
+	#print(dialog_data.dialog_lines)
 	add_to_group("npcs")
 	
 	if has_node("InteractionPrompt"):

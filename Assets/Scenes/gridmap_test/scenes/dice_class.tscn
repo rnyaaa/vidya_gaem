@@ -1,0 +1,127 @@
+[gd_scene load_steps=10 format=4 uid="uid://djtrye22svn5f"]
+
+[ext_resource type="Script" path="res://scripts/dice_class.gd" id="1_bdegk"]
+[ext_resource type="Texture2D" uid="uid://rcege1g0wyt1" path="res://textures/dice_texture.jpg" id="2_a6sgx"]
+[ext_resource type="Script" path="res://scripts/raycast_group_2.gd" id="3_2mo5u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7hv14"]
+resource_name = "Material"
+cull_mode = 2
+albedo_texture = ExtResource("2_a6sgx")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_cwiyg"]
+_surfaces = [{
+"aabb": AABB(-0.25, -0.25, -0.25, 0.5, 0.5, 0.5),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAAGAAQAAAACAAYAAwAGAAIAAwAHAAYABwAEAAYABwAFAAQABQADAAEABQAHAAMAAQACAAAAAQADAAIABQAAAAQABQABAAAA"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("//8AAP7/AAD///7///8AAP//AAAAAAAA/////wAAAAAAAAAA/v8AAAAA/v///wAAAAAAAAAAAAAAAP//AAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_nyrl4"]
+resource_name = "dice_model_Cube"
+_surfaces = [{
+"aabb": AABB(-0.25, -0.25, -0.25, 0.5, 0.5, 0.5),
+"attribute_data": PackedByteArray("/39NXv9/TV7/f01e/38lq/9/Jav/fyWrUkJNXlJCTV5SQk1eUkIlq1JCJatSQiWrrL1NXv9/dRGsvU1erL0lq/9//fesvSWrpQRNXlJCdRFZ+01epQQlq1JC/fdZ+yWr"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AQATAA0AAQAHABMACQASAAYACQAVABIAFwAOABQAFwARAA4AEAAKAAQAEAAWAAoABQAIAAIABQALAAgADwAAAAwADwADAAAA"),
+"material": SubResource("StandardMaterial3D_7hv14"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("//8AAP7//////wAA/v9U1f//AAD+///////+//////////7///9U1f///v////////8AAAAA/////wAAAABU1f//AAAAAP///////wAA////////AABU1f////8AAP//AAAAAP7///8AAAAA/v9U1QAAAAD+////AAD+//////8AAP7///9U1QAA/v//////AAAAAAAA//8AAAAAAABU1QAAAAAAAP//AAD//wAA//8AAP//AABU1QAA//8AAP///3//f6oqVNX/v/9//3//f6qqqqr/v/9/////f6oqVNX/v/9/////f6qqqqr/v/9//3//f6oqVNX/P/9//3//f6qqqqr/P/9/////f6oqVNX/P/9/////f6qqqqr/P/9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_cwiyg")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1mm74"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4clbe"]
+albedo_color = Color(0.967815, 0, 0.448555, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1m6rb"]
+material = SubResource("StandardMaterial3D_4clbe")
+top_radius = 0.02
+bottom_radius = 0.02
+height = 5.0
+
+[node name="DiceClass" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 5)
+script = ExtResource("1_bdegk")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+freeze = true
+
+[node name="dice_model" type="Node3D" parent="RigidBody3D"]
+
+[node name="Cube" type="MeshInstance3D" parent="RigidBody3D/dice_model"]
+mesh = SubResource("ArrayMesh_nyrl4")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_1mm74")
+
+[node name="raycast_group" type="Node3D" parent="RigidBody3D"]
+visible = false
+script = ExtResource("3_2mo5u")
+
+[node name="raycast_1" type="RayCast3D" parent="RigidBody3D/raycast_group"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, 5, 0)
+collision_mask = 2
+
+[node name="raycast_debug_mesh" type="MeshInstance3D" parent="RigidBody3D/raycast_group/raycast_1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+mesh = SubResource("CylinderMesh_1m6rb")
+
+[node name="raycast_2" type="RayCast3D" parent="RigidBody3D/raycast_group"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0, 0, 0)
+target_position = Vector3(0, 5, 0)
+collision_mask = 2
+
+[node name="raycast_debug_mesh" type="MeshInstance3D" parent="RigidBody3D/raycast_group/raycast_2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+mesh = SubResource("CylinderMesh_1m6rb")
+
+[node name="raycast_3" type="RayCast3D" parent="RigidBody3D/raycast_group"]
+transform = Transform3D(-1, -8.74228e-08, -3.82137e-15, 0, -4.37114e-08, 1, -8.74228e-08, 1, 4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, 5, 0)
+collision_mask = 2
+
+[node name="raycast_debug_mesh" type="MeshInstance3D" parent="RigidBody3D/raycast_group/raycast_3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+mesh = SubResource("CylinderMesh_1m6rb")
+
+[node name="raycast_4" type="RayCast3D" parent="RigidBody3D/raycast_group"]
+transform = Transform3D(1.31134e-07, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, -1.31134e-07, -5.73206e-15, 0, 0, 0)
+target_position = Vector3(0, 5, 0)
+collision_mask = 2
+
+[node name="raycast_debug_mesh" type="MeshInstance3D" parent="RigidBody3D/raycast_group/raycast_4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+mesh = SubResource("CylinderMesh_1m6rb")
+
+[node name="raycast_5" type="RayCast3D" parent="RigidBody3D/raycast_group"]
+transform = Transform3D(-5.73206e-15, 8.74228e-08, -1, 1.31134e-07, -1, -8.74228e-08, -1, -1.31134e-07, -5.73206e-15, 0, 0, 0)
+target_position = Vector3(0, 5, 0)
+collision_mask = 2
+
+[node name="raycast_debug_mesh" type="MeshInstance3D" parent="RigidBody3D/raycast_group/raycast_5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+mesh = SubResource("CylinderMesh_1m6rb")
+
+[node name="raycast_6" type="RayCast3D" parent="RigidBody3D/raycast_group"]
+target_position = Vector3(0, 5, 0)
+collision_mask = 2
+
+[node name="raycast_debug_mesh" type="MeshInstance3D" parent="RigidBody3D/raycast_group/raycast_6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+mesh = SubResource("CylinderMesh_1m6rb")

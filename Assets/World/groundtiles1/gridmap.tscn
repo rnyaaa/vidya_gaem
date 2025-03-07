@@ -49,24 +49,20 @@ size = Vector3(2, 2, 2)
 [node name="Node3D" type="Node3D"]
 
 [node name="concrete" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 mesh = SubResource("PlaneMesh_atgww")
 
 [node name="ground" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_u6bcl")
 
 [node name="rock" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 mesh = SubResource("PlaneMesh_wts0n")
 
 [node name="sand2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
 mesh = SubResource("PlaneMesh_up2et")
 
 [node name="sand" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
 mesh = SubResource("PlaneMesh_r657g")
 
 [node name="horizontal" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -1, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 mesh = SubResource("BoxMesh_5slal")
