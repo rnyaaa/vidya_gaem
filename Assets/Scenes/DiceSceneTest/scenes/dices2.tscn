@@ -89,8 +89,8 @@ shadow_enabled = true
 omni_range = 14.0
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.882603, 0.470119, 0, -0.470119, 0.882603, 0, 17.9, 28)
-fov = 20.0
+transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 16.9, 28)
+fov = 23.0
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3

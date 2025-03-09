@@ -8,77 +8,98 @@
 [ext_resource type="Texture2D" uid="uid://cnm3k3ssitut6" path="res://Assets/World/groundtiles1/sand.png" id="5_kv2ue"]
 [ext_resource type="Texture2D" uid="uid://sbm4gwu35ief" path="res://Assets/World/groundtiles1/grass1.png" id="6_sqpvg"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l35bc"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ebpv"]
 albedo_texture = ExtResource("1_f8nqt")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+texture_filter = 0
+billboard_mode = 1
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_atgww"]
-lightmap_size_hint = Vector2i(8, 5)
-material = SubResource("StandardMaterial3D_l35bc")
+[sub_resource type="BoxMesh" id="BoxMesh_v8df0"]
+material = SubResource("StandardMaterial3D_3ebpv")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q0cnt"]
 albedo_texture = ExtResource("2_hknnw")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+texture_filter = 0
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_u6bcl"]
+[sub_resource type="BoxMesh" id="BoxMesh_7nvh8"]
 material = SubResource("StandardMaterial3D_q0cnt")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f3yq0"]
 albedo_texture = ExtResource("3_7wbbq")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_wts0n"]
+[sub_resource type="BoxMesh" id="BoxMesh_4ulwa"]
 material = SubResource("StandardMaterial3D_f3yq0")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1wora"]
 albedo_texture = ExtResource("5_kv2ue")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+texture_filter = 0
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_r657g"]
+[sub_resource type="BoxMesh" id="BoxMesh_hktfl"]
 material = SubResource("StandardMaterial3D_1wora")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f5ukm"]
 albedo_texture = ExtResource("4_laiyo")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+texture_filter = 0
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_up2et"]
+[sub_resource type="BoxMesh" id="BoxMesh_3bc06"]
 material = SubResource("StandardMaterial3D_f5ukm")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3i3ro"]
 albedo_color = Color(0.715105, 0.715105, 0.715105, 1)
 albedo_texture = ExtResource("6_sqpvg")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+texture_filter = 0
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_347ej"]
+[sub_resource type="BoxMesh" id="BoxMesh_1p25f"]
 material = SubResource("StandardMaterial3D_3i3ro")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nsjmd"]
 albedo_texture = ExtResource("1_i2f7w")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+texture_filter = 0
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_ogjcg"]
+[sub_resource type="BoxMesh" id="BoxMesh_0x3ap"]
 material = SubResource("StandardMaterial3D_nsjmd")
 
 [node name="FlatLibrary" type="Node3D"]
 
 [node name="concrete" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_atgww")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh = SubResource("BoxMesh_v8df0")
 
 [node name="ground" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
-mesh = SubResource("PlaneMesh_u6bcl")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, 0)
+mesh = SubResource("BoxMesh_7nvh8")
 
 [node name="rock" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
-mesh = SubResource("PlaneMesh_wts0n")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -1, 0)
+mesh = SubResource("BoxMesh_4ulwa")
 
 [node name="sand" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
-mesh = SubResource("PlaneMesh_r657g")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -1, 0)
+mesh = SubResource("BoxMesh_hktfl")
 
 [node name="sand2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 0)
-mesh = SubResource("PlaneMesh_up2et")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -1, 0)
+mesh = SubResource("BoxMesh_3bc06")
 
 [node name="grass" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
-mesh = SubResource("PlaneMesh_347ej")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -1, 0)
+mesh = SubResource("BoxMesh_1p25f")
 skeleton = NodePath("")
 
 [node name="wood" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
-mesh = SubResource("PlaneMesh_ogjcg")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -1, 0)
+mesh = SubResource("BoxMesh_0x3ap")
 skeleton = NodePath("")

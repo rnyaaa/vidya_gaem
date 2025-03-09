@@ -8,7 +8,7 @@ var is_dialog_active = false
 var current_npc = null
 var current_dialog_index = 0
 var current_dialog_sequence = []
-var interaction_distance = 10.0 
+var interaction_distance = 2.0 
 
 func check_npc_proximity(player_position, npcs):
 	if is_dialog_active:

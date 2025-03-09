@@ -8,7 +8,6 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e7ghj"]
 
 [node name="NPC" type="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18)
 script = ExtResource("1_lkjg2")
 npc_name = "Slinger"
 portrait_texture = ExtResource("2_maja7")
@@ -16,7 +15,7 @@ dialog_lines = Array[String](["I am the hash slashing slinger. ", "I slash hash 
 "])
 
 [node name="InteractionPrompt" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.133764, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 pixel_size = 0.0025
 billboard = 1
 shaded = true
@@ -24,7 +23,7 @@ texture = ExtResource("3_p11ke")
 script = ExtResource("4_rvtjh")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 pixel_size = 0.0021
 billboard = 1
 texture = ExtResource("2_maja7")

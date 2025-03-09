@@ -11,7 +11,9 @@ var throw = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	rigid_body_3d.set_freeze_enabled(true)
+	
 	dice_model.visible = false
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -27,6 +29,7 @@ func _process(delta: float) -> void:
 		throw = 1
 		
 	DiceValue = raycast_group.checkSide()
+	
 
 func randomImpulse():
 	var x = randf_range(0.1, 5) * -1
