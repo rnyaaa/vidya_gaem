@@ -2,12 +2,16 @@ extends Node3D
 
 # Movement speed
 @export var speed: float = 5.0
+@export var sprintMult: float = 1.5
 # Rotation speed in degrees
 @export var rotation_speed: float = 15.0
 # Reference to the animated sprite
 @export var animated_sprite: AnimatedSprite3D
+@export var animation_speed: int = 8
 
 @onready var dialog_system = get_node("/root/DialogSystem")
+
+var camRotationCounter: int
 
 # Available animation names
 const ANIM_NORTH = "walk_north"
@@ -38,14 +42,27 @@ func _process(delta: float) -> void:
 		last_direction = input_dir
 		play_directional_animation(input_dir)
 	
+	#Movement functionality
 	if direction != Vector3.ZERO:
 		direction = transform.basis * direction
+		
+	if Input.is_action_pressed("Sprint") == false:
 		position += direction * speed * delta
+		animated_sprite.speed_scale = animation_speed
+	#Sprinting functionality
+	else:
+		position += direction * (speed * sprintMult) * delta
+		animated_sprite.speed_scale = animation_speed * 1.333
 	
-	if Input.is_action_just_pressed("rotate_left"):
-		rotate_y(deg_to_rad(15))
-	if Input.is_action_just_pressed("rotate_right"):
-		rotate_y(deg_to_rad(-15))
+	#Rotation functionality
+	#if Input.is_action_just_pressed("rotate_left"):
+		#rotate_y(deg_to_rad(15))
+	#if Input.is_action_just_pressed("rotate_right"):
+		#rotate_y(deg_to_rad(-15))
+	if Input.is_action_pressed("rotate_left"):
+		cameraRotation("rotate_left")
+	elif Input.is_action_pressed("rotate_right"):
+		cameraRotation("rotate_right")
 		
 		
 	var npcs = get_tree().get_nodes_in_group("npcs")
@@ -108,3 +125,13 @@ func play_directional_animation(input_dir: Vector2) -> void:
 		# Play 
 		if animated_sprite.animation != anim_name or not animated_sprite.is_playing:
 			animated_sprite.play(anim_name)
+
+func cameraRotation(RotationDir):
+	camRotationCounter += 1 #make framerate independant
+	#make rotation faster the longer held
+	if camRotationCounter >= 10:
+		if RotationDir == "rotate_left":
+			rotate_y(deg_to_rad(15))
+		if RotationDir == "rotate_right":
+			rotate_y(deg_to_rad(-15))
+		camRotationCounter = 0

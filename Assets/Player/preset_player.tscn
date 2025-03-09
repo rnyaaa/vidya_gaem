@@ -1319,6 +1319,7 @@ height = 1.0
 
 [node name="PlayerCharacter" type="Node3D" node_paths=PackedStringArray("animated_sprite")]
 script = ExtResource("1_3yovi")
+speed = 4.5
 animated_sprite = NodePath("PlayerSprite")
 
 [node name="playerbox" type="MeshInstance3D" parent="."]
@@ -1333,9 +1334,9 @@ script = ExtResource("2_epmug")
 shakeMultiplier = 1.5
 
 [node name="Camera3D" type="Camera3D" parent="CameraRig"]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573577, 0.819153, 0, 16, 15)
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573577, 0, -0.573577, 0.819152, 0, 15, 15)
 projection = 1
-size = 15.0
+size = 12.0
 
 [node name="PlayerSprite" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1, 5.96046e-08, 2.98023e-07, -1.19209e-07, 1, 0, -7.45059e-07, 0, 0.999999, 0, 0.261, 0)
@@ -1354,6 +1355,7 @@ mesh = SubResource("BoxMesh_7f8dm")
 skeleton = NodePath("../playerbox")
 
 [node name="Collision" type="Area3D" parent="."]
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Collision"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

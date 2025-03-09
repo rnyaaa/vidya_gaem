@@ -1,20 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://b3pj0e0ytoo8f"]
+[gd_scene load_steps=5 format=3 uid="uid://b3pj0e0ytoo8f"]
 
 [ext_resource type="Texture2D" uid="uid://d2cyvxc4rhlkv" path="res://Assets/Particles/fly_transparent.png" id="1_k06hr"]
-
-[sub_resource type="Curve" id="Curve_65s0j"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.495025, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_6yeg4"]
-curve = SubResource("Curve_65s0j")
-
-[sub_resource type="Gradient" id="Gradient_sfn0l"]
-offsets = PackedFloat32Array(0.0232558, 1)
-colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_jouyt"]
-gradient = SubResource("Gradient_sfn0l")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_01o82"]
 particle_flag_align_y = true
@@ -36,9 +22,6 @@ radial_accel_max = 41.95
 tangential_accel_min = -48.73
 tangential_accel_max = 36.02
 scale_min = 0.5
-color = Color(0, 0, 0, 0)
-color_ramp = SubResource("GradientTexture1D_jouyt")
-alpha_curve = SubResource("CurveTexture_6yeg4")
 hue_variation_min = -2.23517e-08
 hue_variation_max = -2.23517e-08
 anim_speed_max = 0.27
