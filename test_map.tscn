@@ -1,10 +1,11 @@
-[gd_scene load_steps=34 format=3 uid="uid://c8ubgto40bqr0"]
+[gd_scene load_steps=35 format=3 uid="uid://c8ubgto40bqr0"]
 
 [ext_resource type="PackedScene" uid="uid://c1pfu2uh6o7u8" path="res://Assets/Dialog/DialogSystem.tscn" id="1_5cq55"]
 [ext_resource type="Script" path="res://Assets/Scripts/game_manager.gd" id="1_ihsvo"]
 [ext_resource type="Texture2D" uid="uid://dcf68jaak3veb" path="res://Assets/World/sillybucket.png" id="1_u4g3w"]
 [ext_resource type="Script" path="res://Assets/Dialog/DialogSystem.gd" id="1_usjux"]
 [ext_resource type="Script" path="res://Assets/Scripts/scene_manager.gd" id="2_ibkob"]
+[ext_resource type="PackedScene" uid="uid://8ggwrsq7rjyt" path="res://Assets/NPCs/roamer_1.tscn" id="5_cvlln"]
 [ext_resource type="PackedScene" uid="uid://ci20hyjn4qcdt" path="res://Assets/Player/preset_player.tscn" id="5_eefe3"]
 [ext_resource type="Texture2D" uid="uid://de1ts78c7ctme" path="res://Assets/World/groundtiles1/rock.png" id="8_6sn1y"]
 [ext_resource type="MeshLibrary" uid="uid://bob71i6x0i2bs" path="res://Assets/World/groundtiles1/groundtiles_1.tres" id="10_lyd84"]
@@ -121,6 +122,9 @@ script = ExtResource("2_ibkob")
 
 [node name="NPC" parent="." instance=ExtResource("326_x4l0l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, -3.5)
+
+[node name="Roamer1" parent="." instance=ExtResource("5_cvlln")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0.4, 0)
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
