@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=3 uid="uid://cesn8ddk5tlax"]
+
+[ext_resource type="Script" path="res://ik_npc.gd" id="1_s6mob"]
+[ext_resource type="Script" path="res://ik_arm.gd" id="1_wjg7w"]
+[ext_resource type="PackedScene" uid="uid://do7ejej5rf1ab" path="res://Assets/NPCs/IK_NPC/Skel_Model/skull.fbx" id="2_6s5mb"]
+[ext_resource type="PackedScene" uid="uid://b615x7htrcjvm" path="res://billboardizer.tscn" id="2_xh0ex"]
+[ext_resource type="PackedScene" uid="uid://b7qslejw35a0s" path="res://Assets/NPCs/IK_NPC/Skel_Model/up_hand.fbx" id="3_q25ap"]
+[ext_resource type="PackedScene" uid="uid://betd65wnq02jr" path="res://Assets/NPCs/IK_NPC/Skel_Model/lo_hand.fbx" id="4_qaqdw"]
+[ext_resource type="PackedScene" uid="uid://fjag1dvaroo5" path="res://Assets/NPCs/IK_NPC/Skel_Model/hand.fbx" id="5_yvxty"]
+
+[node name="IK_NPC" type="Node3D"]
+script = ExtResource("1_s6mob")
+
+[node name="arm_1_billboardizer" parent="." instance=ExtResource("2_xh0ex")]
+input_mesh = ExtResource("3_q25ap")
+
+[node name="arm_2_billboardizer" parent="." instance=ExtResource("2_xh0ex")]
+input_mesh = ExtResource("4_qaqdw")
+
+[node name="hand_billboardizer" parent="." instance=ExtResource("2_xh0ex")]
+input_mesh = ExtResource("5_yvxty")
+angle_resolution = 10
+
+[node name="head_billboardizer" parent="." instance=ExtResource("2_xh0ex")]
+input_mesh = ExtResource("2_6s5mb")
+angle_resolution = 30
+
+[node name="IK_ARM_START" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+script = ExtResource("1_wjg7w")
+n_bones = 9
+bone_len = 0.75
+margin = 0.4
+incr = 0.8
+smoothing_factor = 0.1
+
+[node name="IK_ARM_START2" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+script = ExtResource("1_wjg7w")
+n_bones = 9
+bone_len = 0.75
+margin = 0.4
+incr = 0.8
+smoothing_factor = 0.1
+
+[node name="IK_ARM_START3" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+script = ExtResource("1_wjg7w")
+n_bones = 9
+bone_len = 0.75
+margin = 0.4
+incr = 0.8
+smoothing_factor = 0.1
+
+[node name="IK_ARM_START4" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+script = ExtResource("1_wjg7w")
+n_bones = 9
+bone_len = 0.75
+margin = 0.4
+incr = 0.8
+smoothing_factor = 0.1
+
+[node name="IK_HEAD" type="Sprite3D" parent="."]
+pixel_size = 0.05
+billboard = 1
+
+[node name="target" type="Marker3D" parent="."]

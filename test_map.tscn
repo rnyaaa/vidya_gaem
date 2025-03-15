@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://c8ubgto40bqr0"]
+[gd_scene load_steps=36 format=3 uid="uid://c8ubgto40bqr0"]
 
 [ext_resource type="PackedScene" uid="uid://c1pfu2uh6o7u8" path="res://Assets/Dialog/DialogSystem.tscn" id="1_5cq55"]
 [ext_resource type="Script" path="res://Assets/Scripts/game_manager.gd" id="1_ihsvo"]
@@ -14,6 +14,7 @@
 [ext_resource type="MeshLibrary" uid="uid://bxudek5k6a6rd" path="res://Assets/World/3dLibrary1/env_objects1.tres" id="11_g3uym"]
 [ext_resource type="Texture2D" uid="uid://b6kmyb66ci6vk" path="res://Assets/Scenes/DiceSceneTest/textures/einorChar1.png" id="12_6tkcv"]
 [ext_resource type="AudioStream" uid="uid://d2y5jajjg0jc2" path="res://MGSV_File0176.ogg" id="15_2y3a6"]
+[ext_resource type="PackedScene" uid="uid://cesn8ddk5tlax" path="res://ik_npc.tscn" id="17_qsaip"]
 [ext_resource type="PackedScene" uid="uid://bv50ux6c3nud8" path="res://Assets/NPCs/preset_npc.tscn" id="326_x4l0l"]
 [ext_resource type="PackedScene" uid="uid://b3pj0e0ytoo8f" path="res://Assets/Particles/fly_particles.tscn" id="330_6kpum"]
 
@@ -309,6 +310,10 @@ stream = ExtResource("15_2y3a6")
 autoplay = true
 attenuation_filter_cutoff_hz = 20000.0
 parameters/looping = true
+
+[node name="IK_NPC" parent="." instance=ExtResource("17_qsaip")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25051, 0)
+script = null
 
 [connection signal="area_entered" from="DiceGameAreaCheckTest" to="SceneManager" method="_on_dice_game_area_check_test_area_entered"]
 [connection signal="area_entered" from="SignalTest" to="SignalTest" method="_on_area_entered"]

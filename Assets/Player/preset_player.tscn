@@ -1355,7 +1355,6 @@ mesh = SubResource("BoxMesh_7f8dm")
 skeleton = NodePath("../playerbox")
 
 [node name="Collision" type="Area3D" parent="."]
-visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Collision"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

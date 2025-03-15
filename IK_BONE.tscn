@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvbbtwlwrn25o"]
+
+[ext_resource type="Script" path="res://ik_bone.gd" id="1_upi2p"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_yne5y"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="IK_START" type="Marker3D"]
+script = ExtResource("1_upi2p")
+length = 2.0
+
+[node name="mesh" type="Sprite3D" parent="."]
+pixel_size = 0.0075
+billboard = 1
+shaded = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("BoxMesh_yne5y")
