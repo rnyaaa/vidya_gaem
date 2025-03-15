@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name Player
 
 # Movement speed
 @export var speed: float = 15.0
@@ -22,6 +23,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var direction = Vector3.ZERO
 	
+	velocity *= Vector3.ZERO 
+	
 	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	direction = Vector3(input_dir.x, 0, input_dir.y).normalized()
 	direction.y += -gravity
@@ -35,7 +38,7 @@ func _process(delta: float) -> void:
 	#Sprinting functionality
 	else:
 		velocity += direction * (speed * sprintMult) * delta
-	velocity *= 0.9
+	
 	if Input.is_action_pressed("rotate_left"):
 		cameraRotation("rotate_left")
 	elif Input.is_action_pressed("rotate_right"):

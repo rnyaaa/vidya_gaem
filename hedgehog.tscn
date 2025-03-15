@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://b4i77ga58vli0"]
 
 [ext_resource type="Script" path="res://NPC_Billboardized.gd" id="1_ab81a"]
-[ext_resource type="PackedScene" path="res://billboardizer.tscn" id="1_uwffh"]
+[ext_resource type="PackedScene" uid="uid://b615x7htrcjvm" path="res://billboardizer.tscn" id="1_uwffh"]
 [ext_resource type="PackedScene" uid="uid://rr5mgmny2fcj" path="res://hedgehog.glb" id="2_ihpfb"]
-[ext_resource type="Texture2D" uid="uid://ds0xon1rp3rcj" path="res://Assets/NPCs/dialog.png" id="4_rfl8e"]
+[ext_resource type="Texture2D" uid="uid://dgjp3w43yo5rs" path="res://Assets/NPCs/dialog_2.png" id="4_boicw"]
 [ext_resource type="Script" path="res://Assets/Dialog/InteractionPrompt.gd" id="5_ttgso"]
 
 [node name="Hedgehog" type="Node3D"]
@@ -17,9 +17,8 @@ billboard = 1
 input_mesh = ExtResource("2_ihpfb")
 
 [node name="InteractionPrompt" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 2, 0)
 pixel_size = 0.0025
 billboard = 1
-shaded = true
-texture = ExtResource("4_rfl8e")
+texture = ExtResource("4_boicw")
 script = ExtResource("5_ttgso")

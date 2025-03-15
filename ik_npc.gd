@@ -14,7 +14,7 @@ var old_smoothing_factor = smoothing_factor
 var old_movement_speed = movement_speed
 # Node references
 @export var player: PackedScene		# Reference to player node
-@onready var camera: Camera3D = $"../playerbox/CameraRig/Camera3D"
+@onready var camera: Camera3D = $"../../playerbox/CameraRig/Camera3D"
 @onready var head_node = $IK_HEAD
 @onready var target_node = $target
 

@@ -1,6 +1,6 @@
 extends Sprite3D
 
-@export var bob_height: float = 0.2
+@export var bob_height: float = 0.1
 @export var bob_speed: float = 2.0
 @export var rotation_speed: float = 1.0
 

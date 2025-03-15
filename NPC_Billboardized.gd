@@ -6,7 +6,7 @@ extends Node3D
 
 @onready var interaction_prompt = $InteractionPrompt
 @export var player: PackedScene             # Reference to player node
-@onready var camera: Camera3D = $"../playerbox/CameraRig/Camera3D"
+@onready var camera: Camera3D = $"../../playerbox/CameraRig/Camera3D"
 
 @export var mesh: PackedScene
 @onready var mesh_billboardizer = $Billboardizer
