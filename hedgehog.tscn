@@ -17,7 +17,7 @@ billboard = 1
 input_mesh = ExtResource("2_ihpfb")
 
 [node name="InteractionPrompt" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 pixel_size = 0.0025
 billboard = 1
 texture = ExtResource("4_boicw")

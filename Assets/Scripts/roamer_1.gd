@@ -17,7 +17,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:	
 	updatedPos = startPos + randomizedVector
-	global_position = global_position.lerp(updatedPos, delta * 0.5)
+	global_position = global_position.lerp(updatedPos, delta * 4)
 	
 	if Engine.get_frames_drawn() % roamIntervalFrames == 0:
 		randomDir()

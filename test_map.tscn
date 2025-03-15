@@ -223,7 +223,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.290196, 0.290196, 0.290196, 0.145098)
+color = Color(0.290196, 0.290196, 0.290196, 0.301961)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Systems/RainDemo"]
 material = SubResource("CanvasItemMaterial_8jm1g")

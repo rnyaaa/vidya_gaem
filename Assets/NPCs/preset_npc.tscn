@@ -16,7 +16,7 @@ dialog_lines = Array[String](["I am the hash slashing slinger. ", "I slash hash 
 "])
 
 [node name="InteractionPrompt" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 pixel_size = 0.0025
 billboard = 1
 texture = ExtResource("3_p2s11")
