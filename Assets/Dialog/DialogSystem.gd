@@ -30,6 +30,8 @@ func check_npc_proximity(player_position, npcs):
 		show_interaction_prompt(closest_npc)
 		
 		if Input.is_action_just_pressed("ui_accept"):  
+			print("STARTING DIALOG")
+			print(closest_npc)
 			start_dialog(closest_npc)
 
 func show_interaction_prompt(npc):
@@ -39,14 +41,15 @@ func hide_interaction_prompt(npc):
 	npc.interaction_prompt.visible = false
 
 func start_dialog(npc):
+	print("STARTING DIALOG WITH: ", npc)
 	if is_dialog_active:
+		print("AHA DIALOG ACTIVE")
 		return
-		
 	current_npc = npc
 	is_dialog_active = true
 	current_dialog_index = 0
 	current_dialog_sequence = npc.dialog_data.get_dialog_sequence()
-	
+	print(current_dialog_sequence)
 	emit_signal("dialog_started", npc.dialog_data)
 	display_current_dialog()
 
@@ -67,6 +70,7 @@ func advance_dialog():
 		display_current_dialog()
 
 func display_current_dialog():
+	print("DISPLAYING")
 	var dialog_text = current_dialog_sequence[current_dialog_index]
 	emit_signal("dialog_advanced", dialog_text)
 

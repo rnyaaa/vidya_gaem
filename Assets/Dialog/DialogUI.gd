@@ -34,6 +34,7 @@ func _process(_delta):
 
 func _on_dialog_started(npc_data):
 	# Set up UI with NPC data
+	print("UI: DIALOG STARTED")
 	npc_name_label.text = npc_data.npc_name
 	portrait.texture = npc_data.portrait
 	
@@ -69,4 +70,5 @@ func _on_dialog_ended():
 	tween.tween_callback(Callable(self, "set_process").bind(false))
 
 func _on_dialog_advanced(new_text):
+	print("UI: ADVANCING DIALOG")
 	dialog_text.text = new_text

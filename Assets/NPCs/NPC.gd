@@ -1,4 +1,4 @@
-extends CharacterBody3D 
+extends Node3D 
 
 @export var npc_name: String = "NPC"
 @export var portrait_texture: Texture2D

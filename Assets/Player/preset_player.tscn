@@ -323,6 +323,10 @@
 [ext_resource type="Texture2D" uid="uid://3f3k3cy1c5l8" path="res://Assets/Animations/player/0079.png" id="320_d1eeg"]
 [ext_resource type="Texture2D" uid="uid://dhuoass8raw1a" path="res://Assets/Animations/player/0080.png" id="321_rimhn"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rmufr"]
+radius = 0.25
+height = 1.0
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_gus5q"]
 radius = 0.25
 height = 1.0
@@ -1313,20 +1317,8 @@ animations = [{
 [sub_resource type="BoxMesh" id="BoxMesh_7f8dm"]
 size = Vector3(10, 1, 5)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rmufr"]
-radius = 0.25
-height = 1.0
-
-[node name="PlayerCharacter" type="Node3D" node_paths=PackedStringArray("animated_sprite")]
+[node name="CharacterBody3D" type="CharacterBody3D"]
 script = ExtResource("1_3yovi")
-speed = 4.5
-animated_sprite = NodePath("PlayerSprite")
-
-[node name="playerbox" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0.5, 0)
-visible = false
-mesh = SubResource("CapsuleMesh_gus5q")
-skeleton = NodePath("")
 
 [node name="CameraRig" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0.5, 0)
@@ -1338,7 +1330,19 @@ transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573577, 0, -0.573577, 0.819152, 
 projection = 1
 size = 12.0
 
-[node name="PlayerSprite" type="AnimatedSprite3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_rmufr")
+
+[node name="PlayerCharacter" type="Node3D" parent="."]
+
+[node name="playerbox" type="MeshInstance3D" parent="PlayerCharacter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0.5, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_gus5q")
+skeleton = NodePath("")
+
+[node name="PlayerSprite" type="AnimatedSprite3D" parent="PlayerCharacter"]
 transform = Transform3D(1, 5.96046e-08, 2.98023e-07, -1.19209e-07, 1, 0, -7.45059e-07, 0, 0.999999, 0, 0.261, 0)
 billboard = 1
 alpha_cut = 3
@@ -1348,14 +1352,8 @@ sprite_frames = SubResource("SpriteFrames_e6q7m")
 animation = &"walk_north"
 speed_scale = 6.0
 
-[node name="envRefrence" type="MeshInstance3D" parent="."]
+[node name="envRefrence" type="MeshInstance3D" parent="PlayerCharacter"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, -0.5, 0)
 visible = false
 mesh = SubResource("BoxMesh_7f8dm")
 skeleton = NodePath("../playerbox")
-
-[node name="Collision" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-shape = SubResource("CapsuleShape3D_rmufr")
