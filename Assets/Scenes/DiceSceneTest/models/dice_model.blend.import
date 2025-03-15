@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://lnr237ktntfn"
-path="res://.godot/imported/dice_model.blend-33edc0c4106d9753fbbf2413f2341bf8.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Scenes/DiceSceneTest/models/dice_model.blend"
-dest_files=["res://.godot/imported/dice_model.blend-33edc0c4106d9753fbbf2413f2341bf8.scn"]
 
 [params]
 
