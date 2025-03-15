@@ -1,11 +1,11 @@
-[gd_scene load_steps=39 format=3 uid="uid://c8ubgto40bqr0"]
+[gd_scene load_steps=39 format=3 uid="uid://0bh2a13tfd1w"]
 
 [ext_resource type="PackedScene" uid="uid://c1pfu2uh6o7u8" path="res://Assets/Dialog/DialogSystem.tscn" id="1_5cq55"]
 [ext_resource type="Script" path="res://Assets/Scripts/game_manager.gd" id="1_ihsvo"]
 [ext_resource type="Texture2D" uid="uid://dcf68jaak3veb" path="res://Assets/World/sillybucket.png" id="1_u4g3w"]
 [ext_resource type="Script" path="res://Assets/Dialog/DialogSystem.gd" id="1_usjux"]
 [ext_resource type="Script" path="res://Assets/Scripts/scene_manager.gd" id="2_ibkob"]
-[ext_resource type="PackedScene" path="res://Assets/NPCs/roamer_1.tscn" id="5_cvlln"]
+[ext_resource type="PackedScene" uid="uid://8ggwrsq7rjyt" path="res://Assets/NPCs/roamer_1.tscn" id="5_cvlln"]
 [ext_resource type="PackedScene" uid="uid://ci20hyjn4qcdt" path="res://Assets/Player/preset_player.tscn" id="5_eefe3"]
 [ext_resource type="Texture2D" uid="uid://de1ts78c7ctme" path="res://Assets/World/groundtiles1/rock.png" id="8_6sn1y"]
 [ext_resource type="MeshLibrary" uid="uid://dg1lcbd4er3ko" path="res://Assets/World/groundtiles1/groundtiles_1.tres" id="10_lyd84"]
@@ -14,7 +14,7 @@
 [ext_resource type="MeshLibrary" uid="uid://bxudek5k6a6rd" path="res://Assets/World/3dLibrary1/env_objects1.tres" id="11_g3uym"]
 [ext_resource type="Texture2D" uid="uid://b6kmyb66ci6vk" path="res://Assets/Scenes/DiceSceneTest/textures/einorChar1.png" id="12_6tkcv"]
 [ext_resource type="AudioStream" uid="uid://d2y5jajjg0jc2" path="res://MGSV_File0176.ogg" id="15_2y3a6"]
-[ext_resource type="PackedScene" uid="uid://cesn8ddk5tlax" path="res://ik_npc.tscn" id="17_qsaip"]
+[ext_resource type="PackedScene" path="res://ik_npc.tscn" id="17_qsaip"]
 [ext_resource type="PackedScene" uid="uid://b4i77ga58vli0" path="res://hedgehog.tscn" id="18_r4ax5"]
 [ext_resource type="Texture2D" uid="uid://d30hf5qs2aqyc" path="res://Assets/NPCs/textures/roamer1.png" id="19_7q6d6"]
 [ext_resource type="PackedScene" uid="uid://rr5mgmny2fcj" path="res://hedgehog.glb" id="19_td8r2"]
@@ -232,7 +232,6 @@ process_material = SubResource("ParticleProcessMaterial_eovl2")
 preprocess = 1.0
 
 [node name="Objects" type="Node3D" parent="."]
-visible = false
 
 [node name="Doodad" type="Sprite3D" parent="Objects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, -3, 0.5, -1)
